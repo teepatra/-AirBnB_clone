@@ -17,8 +17,17 @@ classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
 
 
 class FileStorage():
-    """Class filestorage."""
+    """
+    ------------------
+    CLASS: FileStorage
+    ------------------
+    """
 
+    # ------------------------------- #
+    #       PUBLIC ATTRIBUTES         #
+    # ------------------------------- #
+
+    #path to the Json file
     __file_path = 'file.json'
     #objects dictionary where to save
     __objects = {}
@@ -29,7 +38,10 @@ class FileStorage():
 
     def all(self):
         """
-        Description:
+        ---------------------------
+        PUBLIC INSTANCE METHOD: ALL
+        ---------------------------
+        DESCRIPTION:
             Returns the dictionary stored in
             the attribute '__objects'
         ARGS:
@@ -40,7 +52,10 @@ class FileStorage():
 
     def new(self, obj):
         """
-        Description:
+        ---------------------------
+        PUBLIC INSTANCE METHOD: NEW
+        ---------------------------
+        DESCRIPTION:
             Adds the necessary objects to the
             '__objects' attribute
         ARGS:
@@ -55,7 +70,10 @@ class FileStorage():
 
     def save(self):
         """
-        Description:
+        ----------------------------
+        PUBLIC INSTANCE METHOD: SAVE
+        ----------------------------
+        DESCRIPTION:
             Serializes items in __objects to JSON
             and dumps the output into a file defined
             by '__file_path'
@@ -73,7 +91,10 @@ class FileStorage():
 
     def reload(self):
         """
-        Description:
+        ------------------------------
+        PUBLIC INSTANCE METHOD: RELOAD
+        ------------------------------
+        DESCRIPTION:
             Deserializes a JSON file, loads up
             and loads up all of the instances
             found in the file into the attribute

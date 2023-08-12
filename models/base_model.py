@@ -9,10 +9,10 @@ import models
 
 
 class BaseModel:
-    """Defines all attributes/methods that are common in all classes"""
+    """BaseModel that defines all common attr/methods for other classes:"""
 
     def __init__(self, *args, **kwargs):
-        """instantiates a new object """
+        """instance constructor and instance instantiation"""
 
         t = '%Y-%m-%dT%H:%M:%S.%f'
         if kwargs:
@@ -30,19 +30,19 @@ class BaseModel:
             models.storage.save()
 
     def __str__(self):
-        """Returns string representation of the instance"""
+        """string readable representation of the instance"""
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
     def save(self):
-	 """ updates the public instance attribute updated_at with current time"""
+        """updates the public instance attribute with the current datetime"""
         self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
-        """return a new dictionnary representation of the class"""
-        new_dict = self.__dict__.copy()
-        new_dict['__class__'] = self.__class__.__name__
-        new_dict['created_at'] = self.created_at.isoformat((sep='T')
-        new_dict['updated_at'] = self.updated_at.isoformat((sep='T')
-        return new_dict
+        """return a dictionnary representation of the class"""
+        d = self.__dict__.copy()
+        d['__class__'] = self.__class__.__name__
+        d['created_at'] = self.created_at.isoformat()
+        d['updated_at'] = self.updated_at.isoformat()
+        return d
